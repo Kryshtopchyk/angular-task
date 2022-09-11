@@ -1,5 +1,15 @@
-import { createAction } from '@ngrx/store';
+import { UserProfile } from '@interfaces';
+import { createAction, props } from '@ngrx/store';
 
-const initProfile = createAction('[Profile] Init');
+const fetchProfile = createAction('[Profile] Fetch');
+const addProfile = createAction('[Profile] Fetch Success', props<{ profile: UserProfile }>());
 
-export const profileActions = { initProfile };
+const fetchProfileList = createAction('[Profile List] Fetch');
+const addProfileList = createAction('[Profile List] Fetch Success', props<{ profileList: UserProfile[] }>());
+
+export const profileActions = {
+    addProfile,
+    addProfileList,
+    fetchProfile,
+    fetchProfileList
+};
